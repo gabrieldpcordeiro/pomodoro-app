@@ -17,7 +17,7 @@ const Pomodoro = () => {
         } else if (time === 0) {
 
             // @ts-ignore
-            clearInterval(interval);
+            // clearInterval(interval);
             // Handle the end of the Pomodoro session here
         }
 
