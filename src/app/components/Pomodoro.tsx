@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import TaskList from "@/app/components/TaskList";
 
 const Pomodoro = () => {
     const [time, setTime] = useState(25 * 60); // Default time is 25 minutes
