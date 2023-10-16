@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import Alarm from "@/app/components/Alarm";
 
 const Pomodoro = () => {
-    const [time, setTime] = useState(5); // Default time is 25 minutes
+    const [time, setTime] = useState(25 * 60); // Default time is 25 minutes
     const [isActive, setIsActive] = useState(false);
 
     const alarmRef = useRef<HTMLAudioElement | null>(null);
