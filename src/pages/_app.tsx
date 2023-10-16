@@ -1,12 +1,13 @@
 // _app.tsx
 
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 
 import '../styles/globals.css';
+import '../styles/font.css';
 import Head from 'next/head';
-import { AppProps } from 'next/app';
+import {AppProps} from 'next/app';
 
-function PomodoroApp({ Component, pageProps }: AppProps) {
+function PomodoroApp({Component, pageProps}: AppProps) {
     useEffect(() => {
         // You can include any global logic here, such as Google Analytics or other scripts
     }, []);

@@ -51,7 +51,7 @@ const Pomodoro = () => {
                             className="btn pause-btn bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded-lg"
                             onClick={toggleTimer}
                         >
-                            Pause
+                            Stop
                         </button>
                         <button
                             className="btn restart-btn bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded-lg"
