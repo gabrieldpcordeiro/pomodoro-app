@@ -3,11 +3,13 @@ import React, {useState} from 'react';
 interface TimerProps {
     stage: number,
     seconds: number,
-    switchStage: (index: number) => void;
-    getTickingTime: () => number;
+    switchStage: (index: number) => void,
+    getTickingTime: () => number,
+    ticking: boolean,
+    setTicking:(newTicking: boolean) => void
 }
 
-const Timer: React.FC<TimerProps> = ({stage,seconds, switchStage, getTickingTime}) => {
+const Timer: React.FC<TimerProps> = ({stage,seconds, switchStage, getTickingTime,ticking,setTicking }) => {
     const options = ["Pomodoro", " Short Break", "Long Break"]
     return (
         <div className=" w-10/12 mx-auto pt-5 text-white flex flex-col justify-center items-center mt-10">
@@ -26,8 +28,8 @@ const Timer: React.FC<TimerProps> = ({stage,seconds, switchStage, getTickingTime
                     {getTickingTime()}:{seconds.toString().padStart(2, "0")}
                 </h1>
             </div>
-            <button className={"px-16 py-2 text-2xl rounded-md bg-white text-blue-500 uppercase font-bold"}>
-                Start
+            <button className={"px-16 py-2 text-2xl rounded-md bg-white text-blue-500 uppercase font-bold"} onClick={()=>setTicking(!ticking)}>
+                {ticking? "Stop" : "Start"}
             </button>
         </div>
     );

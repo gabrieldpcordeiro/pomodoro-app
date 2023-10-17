@@ -11,6 +11,8 @@ const Index = () => {
     const [longBreak, setLongBreak] = useState<number>(10)
     const [shortBreak, setShortBreak] = useState<number>(5)
     const [seconds, setSeconds] = useState<number>(0);
+    const [ticking, setTicking] = useState<boolean>(false);
+
 
     const [stage, setStage] = useState<number>(0)
 
@@ -39,7 +41,7 @@ const Index = () => {
         const setMinutes = updateMinute();
 
         if (!minutes && !seconds) {
-            alert(" timer u[")
+            alert(" timer up")
         } else if (!seconds) {
             setMinutes((minute: number) => minute - 1);
             setSeconds(59);
@@ -51,13 +53,15 @@ const Index = () => {
 
     useEffect(() => {
         const timer = setInterval(() => {
-            clockTicking()
+            if (ticking) {
+                clockTicking();
+            }
         }, 1000);
 
         return () => {
             clearInterval(timer)
         };
-    }, [seconds, pomodoro, longBreak, shortBreak]);
+    }, [seconds, pomodoro, longBreak, shortBreak, ticking]);
     return (
         <div className="bg-gray-900 min-h-screen font-inter">
             <div className="max-w-2xl min-h-screen mx-auto">
@@ -67,11 +71,10 @@ const Index = () => {
                     switchStage={switchStage}
                     getTickingTime={getTickingTime}
                     seconds={seconds}
+                    ticking={ticking}
+                    setTicking={setTicking}
                 />
             </div>
-            {/*<div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">*/}
-            {/*    <TaskList />*/}
-            {/*</div>*/}
         </div>
     );
 };
